@@ -37,34 +37,36 @@ export async function getContributorsForRange(repo: string, baseTag: string, hea
 
 
 export async function getMergedPRs(repo: string, baseTag: string, headTag: string, token: string): Promise<any[]> {
-    const url = `https://api.github.com/repos/${repo}/pulls`;
-    const headers = { 'Authorization': `Bearer ${token}` };
+    // Step 1: Fetch commits between tags
+    const commitsUrl = `https://api.github.com/repos/${repo}/compare/${baseTag}...${headTag}`;
+    const commitsResponse = await axios.get(commitsUrl, {
+        headers: { 'Authorization': `Bearer ${token}` }
+    });
+    const commits = commitsResponse.data.commits;
 
-    try {
-        // Explicitly declare the type of allClosedPRs
-        let allClosedPRs: any[] = [];
-        let page = 1;
-        let hasMore = true;
-
-        while (hasMore) {
-            const params = { state: 'closed', per_page: 100, page: page };
-            const response = await axios.get(url, { headers, params });
-
-            if (response.data.length > 0) {
-                allClosedPRs = [...allClosedPRs, ...response.data];
-                page++;
-            } else {
-                hasMore = false;
+    // Step 2 and 3: Filter and Fetch PR details
+    const mergedPRs = [];
+    for (const commit of commits) {
+        const prNumber = extractPRNumberFromCommit(commit);
+        if (prNumber) {
+            const prUrl = `https://api.github.com/repos/${repo}/pulls/${prNumber}`;
+            const prResponse = await axios.get(prUrl, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (prResponse.data.merged_at) {
+                mergedPRs.push(prResponse.data);
             }
         }
-
-        // TODO: Add your filtering logic here
-
-        return allClosedPRs.filter((pr: any) => pr.merged_at !== null);
-
-    } catch (error) {
-        console.error('Error fetching pull requests:', error);
-        return [];
     }
+
+    return mergedPRs;
 }
 
+function extractPRNumberFromCommit(commit: any): number | null {
+    const prMergeRegex = /Merge pull request #(\d+)/;
+    const match = prMergeRegex.exec(commit.commit.message);
+    if (match && match[1]) {
+        return parseInt(match[1]);
+    }
+    return null;
+}

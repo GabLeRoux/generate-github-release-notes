@@ -1,6 +1,9 @@
 name: 'Generate GitHub Release Notes'
 description: 'Generates release notes based on merged pull requests'
 author: 'Gabriel Le Breton'
+branding:
+  icon: 'book-open'
+  color: 'blue'
 inputs:
   repository:
     description: 'Repository name'

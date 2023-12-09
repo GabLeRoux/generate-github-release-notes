@@ -1,0 +1,23 @@
+name: 'Generate GitHub Release Notes'
+description: 'Generates release notes based on merged pull requests'
+author: 'Gabriel Le Breton'
+inputs:
+  repository:
+    description: 'Repository name'
+    required: true
+  base_tag:
+    description: 'Base tag to compare'
+    required: true
+  head_tag:
+    description: 'Head tag to compare'
+    required: true
+  github_token:
+    description: 'GitHub token for authentication'
+    required: true
+outputs:
+  notes:
+    description: 'Generated release notes'
+
+runs:
+  using: 'node20'
+  main: 'dist/main.js'

@@ -36,11 +36,35 @@ export async function getContributorsForRange(repo: string, baseTag: string, hea
 }
 
 
-export async function getMergedPRs(repo: string, baseTag: string, headTag: string, token: string) {
+export async function getMergedPRs(repo: string, baseTag: string, headTag: string, token: string): Promise<any[]> {
     const url = `https://api.github.com/repos/${repo}/pulls`;
-    const headers = { 'Authorization': `token ${token}` };
-    const params = { state: 'closed', base: baseTag, head: headTag };
-    
-    const response = await axios.get(url, { headers, params });
-    return response.data.filter((pr: any) => pr.merged_at !== null);
+    const headers = { 'Authorization': `Bearer ${token}` };
+
+    try {
+        // Explicitly declare the type of allClosedPRs
+        let allClosedPRs: any[] = [];
+        let page = 1;
+        let hasMore = true;
+
+        while (hasMore) {
+            const params = { state: 'closed', per_page: 100, page: page };
+            const response = await axios.get(url, { headers, params });
+
+            if (response.data.length > 0) {
+                allClosedPRs = [...allClosedPRs, ...response.data];
+                page++;
+            } else {
+                hasMore = false;
+            }
+        }
+
+        // TODO: Add your filtering logic here
+
+        return allClosedPRs.filter((pr: any) => pr.merged_at !== null);
+
+    } catch (error) {
+        console.error('Error fetching pull requests:', error);
+        return [];
+    }
 }
+

@@ -17,11 +17,11 @@ jobs:
       # ... Any steps to set up or build your project
 
       - name: Generate Release Notes
-        uses: gableroux/generate-github-release-notes@v0.0.1
+        uses: gableroux/generate-github-release-notes@v0.0.2
         with:
           repository: ${{ github.repository }}
-          base_tag: 'previous-tag' # Replace with actual tag names
-          head_tag: 'current-tag'  # Replace with actual tag names
+          base_tag: ${{ github.event.release.tag_name }}
+          head_tag: ${{ github.sha }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       # ... Further steps depending on your workflow

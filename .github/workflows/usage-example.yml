@@ -16,22 +16,26 @@ jobs:
 
       # ... Any steps to set up or build your project
 
-      - name: Generate Release Notes
-        uses: gableroux/generate-github-release-notes@v0.0.2
+      - name: Release Notes Creation
+        id: release-notes
+        uses: gableroux/generate-github-release-notes@v0.0.3
         with:
           repository: ${{ github.repository }}
           base_tag: 'v0.0.2'
-          head_tag: ${{ github.sha }}
+          head_tag: 'v0.0.3'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Currently not detecting new contributors
+          # auto_detect_new_contributors: 'false'
+          use_compare_changelog: 'true'
 
-      - name: Print Release Notes
-        run: echo "${{ steps.generate-notes.outputs.notes }}"
+      - name: Display Generated Notes
+        run: echo "${{ steps.release-notes.outputs.notes }}"
 
-      - name: write to file
+      - name: Write to File
         run: echo "${{ steps.generate-notes.outputs.notes }}" > release_notes.txt
 
-      - name: Download Release Notes
-        uses: actions/download-artifact@v2
+      - name: Upload Release Notes
+        uses: actions/upload-artifact@v2
         with:
           name: release_notes
           path: release_notes.txt

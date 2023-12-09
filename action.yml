@@ -14,6 +14,10 @@ inputs:
   github_token:
     description: 'GitHub token for authentication'
     required: true
+  auto_detect_new_contributors:
+    description: 'Automatically detect new contributors between releases (experimental)'
+    required: false
+    default: 'false'
 outputs:
   notes:
     description: 'Generated release notes'

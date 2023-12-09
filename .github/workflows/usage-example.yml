@@ -1,0 +1,27 @@
+name: Use Generate Release Notes Action
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  generate-notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # ... Any steps to set up or build your project
+
+      - name: Generate Release Notes
+        uses: gableroux/generate-github-release-notes@v0.0.1
+        with:
+          repository: ${{ github.repository }}
+          base_tag: 'previous-tag' # Replace with actual tag names
+          head_tag: 'current-tag'  # Replace with actual tag names
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ... Further steps depending on your workflow

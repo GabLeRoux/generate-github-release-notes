@@ -18,11 +18,11 @@ jobs:
 
       - name: Release Notes Creation
         id: release-notes
-        uses: gableroux/generate-github-release-notes@v0.0.2
+        uses: gableroux/generate-github-release-notes@v0.0.3
         with:
           repository: ${{ github.repository }}
           base_tag: 'v0.0.2'
-          head_tag: ${{ github.sha }}
+          head_tag: 'v0.0.3'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # Currently not detecting new contributors
           # auto_detect_new_contributors: 'false'

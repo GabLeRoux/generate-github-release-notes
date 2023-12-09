@@ -27,4 +27,11 @@ describe('formatReleaseNotes', () => {
         expect(notes).toContain('## What\'s Changed');
     });
 
+    it('handles PRs with missing user details', () => {
+        const prs = [
+            { title: 'Improve UI', user: null, html_url: 'https://github.com/user/repo/pull/2' }
+        ];
+        const notes = formatReleaseNotes(prs, [], 'user/repo', 'v1.0.0', 'v1.1.0', false);
+        expect(notes).toContain('* Improve UI by @unknown in https://github.com/user/repo/pull/2');
+    });
 });

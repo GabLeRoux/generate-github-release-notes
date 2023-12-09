@@ -36,4 +36,5 @@ describe('main action', () => {
 
         expect(core.setFailed).toHaveBeenCalledWith(expect.stringContaining('Test Error'));
     });
+
 });

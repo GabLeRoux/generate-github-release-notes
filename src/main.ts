@@ -4,14 +4,6 @@ import { formatReleaseNotes } from './formatter';
 
 export async function run() {
     try {
-        // rewrite with env vars support
-        // const repo = core.getInput('repository', { required: true });
-        // const baseTag = core.getInput('base_tag', { required: true });
-        // const headTag = core.getInput('head_tag', { required: true });
-        // const token = core.getInput('github_token', { required: true });
-        // const autoDetectNewContributors = core.getInput('auto_detect_new_contributors') === 'true';
-        // const useCompareChangelog = core.getInput('use_compare_changelog') === 'true';
-
         const repo = process.env.REPOSITORY || core.getInput('repository', { required: true });
         const baseTag = process.env.BASE_TAG || core.getInput('base_tag', { required: true });
         const headTag = process.env.HEAD_TAG || core.getInput('head_tag', { required: true });

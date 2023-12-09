@@ -32,7 +32,7 @@ jobs:
         run: echo "${{ steps.release-notes.outputs.notes }}"
 
       - name: Write to File
-        run: echo "${{ steps.generate-notes.outputs.notes }}" > release_notes.txt
+        run: echo "${{ steps.release-notes.outputs.notes }}" > release_notes.txt
 
       - name: Upload Release Notes
         uses: actions/upload-artifact@v2

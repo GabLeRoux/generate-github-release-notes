@@ -29,8 +29,18 @@ To use this action in your workflow, add the following step:
 
 1. **Include the Action:** Incorporate the action in your GitHub workflow.
 2. **Set Tags:** Define `base_tag` and `head_tag` to specify the tag range.
-3. **GitHub Token:** Provide a GitHub token for access to repository data.
+3. **GitHub Token:** Provide a GitHub token for repository access. This is provided by default by github actions.
 4. **Run the Workflow:** Trigger the workflow to generate release notes.
+
+## Output example
+
+```markdown
+## What's Changed
+  * Enhancements: Features, Customization, and Contributor Detection by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
+  * npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
+  
+  **Full Changelog**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
+```
 
 ## Contributing
 

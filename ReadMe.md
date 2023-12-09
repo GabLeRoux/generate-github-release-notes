@@ -36,11 +36,23 @@ To use this action in your workflow, add the following step:
 
 ```markdown
 ## What's Changed
-  * Enhancements: Features, Customization, and Contributor Detection by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
-  * npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
-  
-  **Full Changelog**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
+* Enhancements: Features, Customization, and Contributor Detection by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
+* npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
+
+**Full Changelog**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
 ```
+
+### Rendered output example
+
+---
+
+## What's Changed
+* Enhancements: Features, Customization, and Contributor Detection by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
+* npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
+
+**Full Changelog**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
+
+---
 
 ## Contributing
 

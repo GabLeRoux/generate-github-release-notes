@@ -1,5 +1,8 @@
 # Generate GitHub Release Notes Action
 
+[![Run Tests](https://github.com/GabLeRoux/generate-github-release-notes/actions/workflows/main.yml/badge.svg)](https://github.com/GabLeRoux/generate-github-release-notes/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/GabLeRoux/generate-github-release-notes/graph/badge.svg?token=wl8zngEHpC)](https://codecov.io/gh/GabLeRoux/generate-github-release-notes)
+
 This GitHub Action generates structured release notes by fetching and formatting merged pull requests between specified
 tags. It mirrors the functionality of GitHub's "Generate Release Notes" feature available on the release creation page.
 

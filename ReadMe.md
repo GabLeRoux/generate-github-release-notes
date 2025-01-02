@@ -184,7 +184,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           # this is the description of the release from previous step
           body: ${{ steps.release_notes.outputs.notes }}

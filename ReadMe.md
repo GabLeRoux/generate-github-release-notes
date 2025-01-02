@@ -11,7 +11,7 @@ tags. It mirrors the functionality of GitHub's "Generate Release Notes" feature 
 _This project was a personal challenge to practice GitHub Actions development._
 
 **Instead of using this action, you should
-use [softprops/action-gh-release@v1](https://github.com/softprops/action-gh-release) which is more mature and already
+use [softprops/action-gh-release@v2](https://github.com/softprops/action-gh-release) which is more mature and already
 has a release notes feature.**
 
 > | Name                     | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -145,7 +145,7 @@ that aligns with the working example you provided. Here's the updated section:
 ## Alternative Usage example
 
 As mentioned earlier, the suggested alternative is to
-use [softprops/action-gh-release@v1](https://github.com/softprops/action-gh-release). If you're still here, then you
+use [softprops/action-gh-release@v2](https://github.com/softprops/action-gh-release). If you're still here, then you
 probably want to customize the release notes generation. Here's how you can combine both actions to achieve this:
 
 ```yaml

@@ -14,9 +14,9 @@ _This project was a personal challenge to practice GitHub Actions development._
 use [softprops/action-gh-release@v1](https://github.com/softprops/action-gh-release) which is more mature and already
 has a release notes feature.**
 
-> | Name                       | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-> | -------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | `generate_release_notes`   | Boolean | Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes. See the [GitHub docs for this feature](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) for more information |
+> | Name                     | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+> |--------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | `generate_release_notes` | Boolean | Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated. If body is specified, the body will be pre-pended to the automatically generated notes. See the [GitHub docs for this feature](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) for more information |
 
 Complete example usage of the suggested alternative:
 
@@ -40,7 +40,7 @@ jobs:
           mkdir -p build/StandaloneWindows64
           echo "Dummy content" > build/StandaloneWindows64/build-StandaloneWindows64
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-StandaloneWindows64
           path: build/StandaloneWindows64/build-StandaloneWindows64
@@ -54,13 +54,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-StandaloneWindows64
           path: build/StandaloneWindows64
 
       - name: Publish Release and Upload Artifact
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: build/StandaloneWindows64/build-StandaloneWindows64
           # this configuration here should give you the same result as the generate-github-release-notes action
@@ -95,7 +95,7 @@ To use this action in your workflow, add the following step:
 
 ```yaml
 - name: Generate Release Notes
-  uses: gableroux/generate-github-release-notes@v0.1
+  uses: gableroux/generate-github-release-notes@v0.1.1
   with:
     repository: ${{ github.repository }}
     base_tag: ${{ github.event.release.tag_name }}
@@ -108,7 +108,7 @@ To use this action in your workflow, add the following step:
 
 1. **Include the Action:** Incorporate the action in your GitHub workflow.
 2. **Set Tags:** Define `base_tag` and `head_tag` to specify the tag range.
-3. **GitHub Token:** Provide a GitHub token for repository access. This is provided by default by github actions.
+3. **GitHub Token:** Provide a GitHub token for repository access. This is provided by default by GitHub actions.
 4. **Run the Workflow:** Trigger the workflow to generate release notes.
 
 ## Output example
@@ -176,7 +176,7 @@ jobs:
       # Using gableroux/generate-github-release-notes here to generate release notes
       - name: Generate Release Notes
         id: release_notes
-        uses: gableroux/generate-github-release-notes@v0.1
+        uses: gableroux/generate-github-release-notes@v0.1.1
         with:
           repository: ${{ github.repository }}
           base_tag: ${{ github.event.release.tag_name }}
@@ -184,7 +184,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           # this is the description of the release from previous step
           body: ${{ steps.release_notes.outputs.notes }}

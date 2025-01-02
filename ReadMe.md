@@ -40,7 +40,7 @@ jobs:
           mkdir -p build/StandaloneWindows64
           echo "Dummy content" > build/StandaloneWindows64/build-StandaloneWindows64
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-StandaloneWindows64
           path: build/StandaloneWindows64/build-StandaloneWindows64
@@ -54,13 +54,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build-StandaloneWindows64
           path: build/StandaloneWindows64
 
       - name: Publish Release and Upload Artifact
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: build/StandaloneWindows64/build-StandaloneWindows64
           # this configuration here should give you the same result as the generate-github-release-notes action

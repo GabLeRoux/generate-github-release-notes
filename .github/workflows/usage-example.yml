@@ -35,7 +35,7 @@ jobs:
         run: echo "${{ steps.release-notes.outputs.notes }}" > release_notes.txt
 
       - name: Upload Release Notes
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: release_notes
           path: release_notes.txt

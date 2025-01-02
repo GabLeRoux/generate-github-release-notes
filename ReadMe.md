@@ -108,7 +108,7 @@ To use this action in your workflow, add the following step:
 
 1. **Include the Action:** Incorporate the action in your GitHub workflow.
 2. **Set Tags:** Define `base_tag` and `head_tag` to specify the tag range.
-3. **GitHub Token:** Provide a GitHub token for repository access. This is provided by default by github actions.
+3. **GitHub Token:** Provide a GitHub token for repository access. This is provided by default by GitHub actions.
 4. **Run the Workflow:** Trigger the workflow to generate release notes.
 
 ## Output example

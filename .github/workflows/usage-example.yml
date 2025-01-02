@@ -18,7 +18,7 @@ jobs:
 
       - name: Release Notes Creation
         id: release-notes
-        uses: gableroux/generate-github-release-notes@v0.1.1
+        uses: gableroux/generate-github-release-notes@v0.1.2
         with:
           repository: ${{ github.repository }}
           base_tag: 'v0.0.2'

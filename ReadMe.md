@@ -95,7 +95,7 @@ To use this action in your workflow, add the following step:
 
 ```yaml
 - name: Generate Release Notes
-  uses: gableroux/generate-github-release-notes@v0.1.1
+  uses: gableroux/generate-github-release-notes@v0.1.2
   with:
     repository: ${{ github.repository }}
     base_tag: ${{ github.event.release.tag_name }}
@@ -176,7 +176,7 @@ jobs:
       # Using gableroux/generate-github-release-notes here to generate release notes
       - name: Generate Release Notes
         id: release_notes
-        uses: gableroux/generate-github-release-notes@v0.1.1
+        uses: gableroux/generate-github-release-notes@v0.1.2
         with:
           repository: ${{ github.repository }}
           base_tag: ${{ github.event.release.tag_name }}

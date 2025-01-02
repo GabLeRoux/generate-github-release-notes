@@ -24,7 +24,7 @@ export function formatReleaseNotes(prs: any[], newContributors: string[], repo: 
         ? `https://github.com/${repo}/compare/${baseTag}...${headTag}`
         : `https://github.com/${repo}/commits/${headTag}`;
 
-    notes += `\n**Full Changelog**: [${changelogUrl}](${changelogUrl})\n`;
+    notes += `\n**Full Changelog**: ${changelogUrl}\n`;
 
     return notes;
 }

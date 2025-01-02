@@ -120,8 +120,7 @@ To use this action in your workflow, add the following step:
   in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
 * npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
 
-**Full Changelog
-**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
+**Full Changelog**: https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3
 ```
 
 ### Rendered output example
@@ -134,7 +133,7 @@ To use this action in your workflow, add the following step:
   in https://github.com/GabLeRoux/generate-github-release-notes/pull/4
 * npm run build by @GabLeRoux in https://github.com/GabLeRoux/generate-github-release-notes/pull/5
 
-**Full Changelog**: [https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3](https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3)
+**Full Changelog**: https://github.com/GabLeRoux/generate-github-release-notes/compare/v0.0.2...v0.0.3
 
 ---
 
